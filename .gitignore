@@ -1,0 +1,14 @@
+# Eclipse Files and Folders
+.settings/
+.classpath
+.project
+
+# Output folders (compiled binaries, temporary)
+bin/
+
+# macOS System Files
+.DS_Store
+
+# Log and temporary files
+*.log
+*.tmp

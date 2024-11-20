@@ -9,7 +9,7 @@ public class SumIntegerDigits {
 	public static void main(String[] args) {
 		//	Prendo la input dell'utente, la salvo in "num1" e chiudo lo scanner
 		Scanner in = new Scanner(System.in);
-		int num1 = in.nextInt();
+		int num1 = getValidInteger(in, "Inserisci un numero intero: (premi enter per confermare)");
 		in.close();
 		
 		//	Stampo numero inserito
@@ -28,6 +28,24 @@ public class SumIntegerDigits {
 			num1 = num1 / 10;
 		}
 		return sum;
+	}
+	
+	/* Questo metodo ha il compito di richiedere un imput intero.
+	 * Se ciò che viene fornito dall'utente non è di tipo int verrà
+	 * richiesto all'infinito di inserire un dato di tipo int. */
+	public static int getValidInteger(Scanner in, String prompt) {
+		
+		String errorMessage = "\nERROR:\nInput non valido. Per favore, inserisci un numero intero.\n";
+		
+		while(true) {
+			System.out.println(prompt);
+			if (in.hasNextInt()) {
+				return in.nextInt();
+			} else {
+				System.out.println(errorMessage);
+				in.next(); // Consuma il token non valido
+			}
+		}
 	}
 
 }

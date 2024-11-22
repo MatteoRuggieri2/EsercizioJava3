@@ -7,6 +7,7 @@ public class SumIntegerDigits {
 	 * e sommiamo tutte le cifre. */
 
 	public static void main(String[] args) {
+		
 		//	Prendo la input dell'utente, la salvo in "num1" e chiudo lo scanner
 		Scanner in = new Scanner(System.in);
 		int num1 = getValidInteger(in, "Inserisci un numero intero: (premi enter per confermare)");
@@ -30,22 +31,31 @@ public class SumIntegerDigits {
 		return sum;
 	}
 	
-	/* Questo metodo ha il compito di richiedere un imput intero.
-	 * Se ciò che viene fornito dall'utente non è di tipo int verrà
-	 * richiesto all'infinito di inserire un dato di tipo int. */
+	/* Questo metodo ha il compito di richiedere un input intero positivo.
+	 * Se ciò che viene fornito dall'utente non è di tipo int positivo verrà
+	 * richiesto all'infinito. */
 	public static int getValidInteger(Scanner in, String prompt) {
 		
-		String errorMessage = "\nERROR:\nInput non valido. Per favore, inserisci un numero intero.\n";
+		String errorMessage = "\nERROR:\nInput non valido. Per favore, inserisci un numero intero positivo.\n";
 		
-		while(true) {
-			System.out.println(prompt);
-			if (in.hasNextInt()) {
-				return in.nextInt();
-			} else {
-				System.out.println(errorMessage);
-				in.next(); // Consuma il token non valido
-			}
+		// Finchè non ottengo un int positvo
+		while (true) {
+		    System.out.println(prompt);
+
+		    if (in.hasNextInt()) {
+		        int inInt = in.nextInt(); // Leggo il numero intero
+		        if (inInt > 0) {
+		            return inInt; // Se positivo, ritorno il valore
+		        } else {
+		            System.out.println(errorMessage);
+		            // Non consumo ulteriori token, dato che inInt è già stato letto
+		        }
+		    } else {
+		        System.out.println(errorMessage);
+		        in.next(); // Consuma il token non valido
+		    }
 		}
+
 	}
 
 }

@@ -20,13 +20,13 @@ public class SumIntegerDigits {
 		System.out.println("La somma dei digits è: " + digitsSum(num1));
 	}
 	
-	public static int digitsSum(int num1) {
+	public static int digitsSum(int num) {
 		/* Ad ogni ciclo, se num1 è ancora maggiore di 0, lo divido per 10
 		 * e mi prendo il resto. */
 		int sum = 0;
-		while (num1 > 0) {
-			sum += num1 % 10;
-			num1 = num1 / 10;
+		while (num > 0) {
+			sum += num % 10;
+			num = num / 10;
 		}
 		return sum;
 	}

@@ -3,6 +3,9 @@
 .classpath
 .project
 
+# IntelliJ Files and Folders
+.idea
+
 # Output folders (compiled binaries, temporary)
 bin/
 
